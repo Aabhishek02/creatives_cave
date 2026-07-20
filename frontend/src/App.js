@@ -1,55 +1,70 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import { useEffect } from 'react';
+import '@/App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'sonner';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import useSmoothScroll from '@/hooks/useSmoothScroll';
+import useSoundFx from '@/hooks/useSoundFx';
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+import CustomCursor from '@/components/CustomCursor';
+import TopNav from '@/components/TopNav';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Skills from '@/components/Skills';
+import Work from '@/components/Work';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+
+function Portfolio() {
+  useSmoothScroll(true);
+  const sfx = useSoundFx();
 
   useEffect(() => {
-    helloWorldApi();
+    // enable CRT scanline overlay on <html> so it survives route unmounts
+    document.documentElement.classList.add('crt-scanlines');
+    return () => document.documentElement.classList.remove('crt-scanlines');
   }, []);
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="App min-h-screen bg-[#020403] text-[#E4EDE6]">
+      <CustomCursor />
+      <Toaster
+        theme="dark"
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: '#080c09',
+            color: '#E4EDE6',
+            border: '1px solid #132b1a',
+            borderRadius: 0,
+            fontFamily: 'Azeret Mono, monospace',
+            fontSize: 12,
+            letterSpacing: '0.06em',
+          },
+        }}
+      />
+      <TopNav muted={sfx.muted} onToggleMute={() => { sfx.setMuted((m) => !m); sfx.click(); }} onLinkHover={sfx.hover} />
+
+      <main>
+        <Hero onKeystroke={sfx.keystroke} onClick={sfx.click} />
+        <About />
+        <Skills onHover={sfx.hover} />
+        <Work />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
-};
+}
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="*" element={<Portfolio />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
