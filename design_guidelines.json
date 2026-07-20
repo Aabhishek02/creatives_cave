@@ -1,0 +1,91 @@
+{
+  "theme": "dark",
+  "theme_strategy": "Forced Deep Black / Cyberpunk CRT Terminal. No pure white backgrounds allowed. Uses dark voids with high-saturation neon accents.",
+  "colors": {
+    "background": "#020403",
+    "surface": "#080c09",
+    "surface_border": "#132b1a",
+    "primary": "#00FF41",
+    "primary_hover": "#39FF14",
+    "accent_magenta": "#FF00FF",
+    "accent_amber": "#FFB000",
+    "text_primary": "#E4EDE6",
+    "text_secondary": "#00FF41",
+    "text_muted": "#3b5e45"
+  },
+  "typography": {
+    "fonts": {
+      "display": "'Unbounded', sans-serif",
+      "monospace": "'Azeret Mono', monospace",
+      "body": "'Azeret Mono', monospace"
+    },
+    "hierarchy": {
+      "h1": "text-5xl md:text-6xl+ font-display tracking-tighter uppercase font-black",
+      "h2": "text-3xl md:text-4xl font-display tracking-tight uppercase",
+      "h3": "text-xl md:text-2xl font-monospace font-bold uppercase",
+      "body": "text-sm md:text-base font-monospace leading-relaxed",
+      "caption": "text-xs font-monospace uppercase tracking-[0.2em]"
+    }
+  },
+  "visual_enhancers": {
+    "crt_effects": "MANDATORY: Global pointer-events-none overlay for scanlines (repeating-linear-gradient) and subtle grain/noise. Chromatic aberration text-shadow on scroll/hover.",
+    "glitch_hover": "Hovering interactive elements triggers a brief CSS/Framer motion horizontal glitch offset with magenta/cyan shadows.",
+    "custom_cursor": "Replace default cursor with a custom block or crosshair (mix-blend-mode: difference or neon green border).",
+    "parallax_horizon": "Use Framer Motion or CSS perspective to create a glowing synthwave grid on the hero section background.",
+    "animations": "Lenis for smooth momentum scrolling. Framer Motion for line-by-line decrypting text reveals, typewriter effects (hero boot sequence), and power-meter bars loading."
+  },
+  "layout_strategy": {
+    "Hero": "Full-screen terminal boot sequence. Typewriter effect for commands ('> whoami', '> load_portfolio.exe'). Blinking block cursor. Masked line-by-line reveal of massive kinetic headline. CRT flicker on load.",
+    "About": "Styled as a terminal dossier / 'cat about.txt'. First-person origin story. Numbered manifesto chapters (01, 02) using massive 'Unbounded' typography offset against monospace body text.",
+    "Skills": "Interactive console panel. Use green loading bars / 'power meters' for skill tiers. Hovering tools reveals stats/usage details. High-density, raw UI look.",
+    "Showcase": "Categorized as SECTOR_01, SECTOR_02. Large anchor pieces using placeholder images (styled as 'signal loading' or 'in transmission'). Use framer-motion for scroll-triggered image unmasking. Horizontal editorial marquee between sectors.",
+    "Contact": "Form styled purely as a terminal command line interface. Inputs look like terminal prompts (e.g., 'Email > _'). Social links as square terminal buttons. 'Status: available' glowing indicator."
+  },
+  "components_and_libraries": {
+    "libraries": ["framer-motion", "lenis", "lucide-react", "react-fast-marquee"],
+    "shadcn_customization": "Heavily modify any Shadcn components (like forms/inputs) to remove default Vercel-like borders. Use sharp corners (rounded-none), 1px solid #132b1a borders, and neon green text on focus.",
+    "form": "Custom terminal-styled form pushing to MongoDB + Resend (as per brief). Hide standard labels, use inline terminal prompts."
+  },
+  "image_urls": {
+    "showcase_placeholders": {
+      "description": "Premium, highly intentional cyberpunk / neon / Indian street photography placeholders for work sectors.",
+      "urls": [
+        "https://images.unsplash.com/photo-1747058964292-da7b5a4bf1cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBzdHJlZXQlMjBuZW9uJTIwbmlnaHR8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1703698144961-3386ae9b3598?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBzdHJlZXQlMjBuZW9uJTIwbmlnaHR8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1656665508464-9c7a0046459d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBzdHJlZXQlMjBuZW9uJTIwbmlnaHR8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85",
+        "https://images.pexels.com/photos/17195067/pexels-photo-17195067.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://images.unsplash.com/photo-1548317202-26d94742e8d8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxjeWJlcnB1bmslMjBuZW9uJTIwc3RyZWV0fGVufDB8fHx8MTc4NDUzNjY5MHww&ixlib=rb-4.1.0&q=85",
+        "https://images.pexels.com/photos/20278552/pexels-photo-20278552.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      ]
+    },
+    "glitch_textures": {
+      "description": "Abstract CRT glitch elements to be used for masking, hover states, or background noise overlays.",
+      "urls": [
+        "https://images.unsplash.com/photo-1765445773906-64a36ecfd20e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxjcnQlMjBtb25pdG9yJTIwZ2xpdGNoJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1610337673044-720471f83677?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxjcnQlMjBtb25pdG9yJTIwZ2xpdGNoJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85",
+        "https://images.pexels.com/photos/8875646/pexels-photo-8875646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://images.pexels.com/photos/6968874/pexels-photo-6968874.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      ]
+    }
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use generic soft gradients. Use hard lines and solid void blacks.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "For this CRT design, use sharp square borders (rounded-none). Completely avoid rounded SaaS buttons.",
+    "You MUST NOT apply universal transition (e.g., transition: all). Add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add '.App { text-align: center; }' in the css file. This disrupts the human natural reading flow of text.",
+    "Always use modern button styles - in this case, sharp terminal blocks with inverse hover states and glitch effects.",
+    "NEVER: use AI assistant Emoji characters like robot/brain for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on provided image URLs. NEVER use placeholder text for images.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Examine existing components to understand the project's component patterns before creating new ones.",
+    "Use `sonner` for toasts.",
+    "All interactive and key informational elements MUST include a `data-testid` attribute to facilitate robust automated testing.",
+    "Share the guideline for .js files not for .tsx files as this is a JS project.",
+    "DO NOT use complete `transparent` background in header, overlays, any surface that has content under it. Example: Dropdown with transparent background."
+  ]
+}
