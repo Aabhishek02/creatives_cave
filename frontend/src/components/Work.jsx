@@ -3,14 +3,9 @@ import Marquee from 'react-fast-marquee';
 import { WORK } from '@/constants/testIds';
 
 const IMG = {
-  a: 'https://images.unsplash.com/photo-1747058964292-da7b5a4bf1cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBzdHJlZXQlMjBuZW9uJTIwbmlnaHR8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85',
-  b: 'https://images.unsplash.com/photo-1703698144961-3386ae9b3598?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBzdHJlZXQlMjBuZW9uJTIwbmlnaHR8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85',
-  c: 'https://images.unsplash.com/photo-1656665508464-9c7a0046459d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBzdHJlZXQlMjBuZW9uJTIwbmlnaHR8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85',
-  d: 'https://images.pexels.com/photos/17195067/pexels-photo-17195067.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  e: 'https://images.unsplash.com/photo-1548317202-26d94742e8d8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxjeWJlcnB1bmslMjBuZW9uJTIwc3RyZWV0fGVufDB8fHx8MTc4NDUzNjY5MHww&ixlib=rb-4.1.0&q=85',
-  f: 'https://images.pexels.com/photos/20278552/pexels-photo-20278552.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  g: 'https://images.unsplash.com/photo-1765445773906-64a36ecfd20e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxjcnQlMjBtb25pdG9yJTIwZ2xpdGNoJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85',
-  h: 'https://images.unsplash.com/photo-1610337673044-720471f83677?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxjcnQlMjBtb25pdG9yJTIwZ2xpdGNoJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzg0NTM2NjkwfDA&ixlib=rb-4.1.0&q=85',
+  sangeet: '/work/sangeet-tee.jpg',
+  lust: '/work/lust-poster.jpg',
+  dream: '/work/dream1-poster.jpg',
 };
 
 const SECTORS = [
@@ -18,11 +13,11 @@ const SECTORS = [
     n: '01',
     code: 'SECTOR_01',
     label: 'Posters',
-    caption: 'street-culture · film-teasers · gig-flyers',
-    tools: 'ps · ai · ae',
+    caption: 'concept art · editorial · dark narrative',
+    tools: 'ps · ai',
     pieces: [
-      { kind: 'image', title: 'Neon Bazaar Vol.03', concept: 'A speculative Diwali arcade poster \u2014 lakshmi meets laser.', src: IMG.a, ratio: 'ratio-3-4', anchor: true },
-      { kind: 'image', title: 'Bombay 2087', concept: 'Rickshaw grid, dot-matrix headline, rain of magenta.', src: IMG.b, ratio: 'ratio-3-4' },
+      { kind: 'image', title: 'Dream I', concept: 'Placeholder title — send over the real name + a one-line concept and I\u2019ll swap it in.', src: IMG.dream, ratio: 'ratio-3-4', anchor: true },
+      { kind: 'image', title: 'Lust', concept: 'An intense, often overwhelming craving \u2014 for power, money, or experience.', src: IMG.lust, ratio: 'ratio-3-4' },
       { kind: 'signal', title: 'Untitled // dropping soon' },
     ],
   },
@@ -33,9 +28,9 @@ const SECTORS = [
     caption: 'HUDs · menus · shader vibes',
     tools: 'figma · ae · ps',
     pieces: [
-      { kind: 'image', title: 'CAVE//RUN — Boot HUD', concept: 'A CRT boot HUD for a 2D speedrunner. Diagetic UI, subtle chroma.', src: IMG.d, ratio: 'ratio-16-10', anchor: true },
-      { kind: 'image', title: 'Signal Sync — Menu', concept: 'Main menu with hard grid, magenta accents, keyboard-first nav.', src: IMG.e, ratio: 'ratio-4-5' },
-      { kind: 'signal', title: 'Rogue.Prakash // decrypting' },
+      { kind: 'signal', title: 'Menu concept // pending' },
+      { kind: 'signal', title: 'HUD study // pending' },
+      { kind: 'signal', title: 'Untitled // dropping soon' },
     ],
   },
   {
@@ -45,9 +40,9 @@ const SECTORS = [
     caption: 'tees · caps · zines',
     tools: 'ai · id · ps',
     pieces: [
-      { kind: 'image', title: 'Cave Crew Tee — Drop 01', concept: 'Type-driven tee, bilingual back-print, glow-in-the-dark neon.', src: IMG.f, ratio: 'ratio-4-5', anchor: true },
-      { kind: 'image', title: 'Manifesto Zine', concept: '24-page riso zine \u2014 process shots, sketches, glossary.', src: IMG.c, ratio: 'ratio-4-5' },
-      { kind: 'signal', title: 'CAVE 002 // in transmission' },
+      { kind: 'image', title: 'Sangeet — Play/Pause/Repeat', concept: 'Devanagari lockup on an oversized tee \u2014 music as a marionette string to the soul.', src: IMG.sangeet, ratio: 'ratio-16-10', anchor: true },
+      { kind: 'signal', title: 'Drop 02 // in transmission' },
+      { kind: 'signal', title: 'Untitled // dropping soon' },
     ],
   },
   {
@@ -57,8 +52,8 @@ const SECTORS = [
     caption: 'covers · loops · lyric films',
     tools: 'ps · ae',
     pieces: [
-      { kind: 'image', title: 'Static / Sitar EP', concept: 'Cover art for an experimental EP \u2014 static-torn silhouette + sitar rig.', src: IMG.g, ratio: 'ratio-4-5', anchor: true },
-      { kind: 'image', title: 'Loop_014', concept: 'Looping motion piece \u2014 chromatic scan + kanji-style devanagari.', src: IMG.h, ratio: 'ratio-4-5' },
+      { kind: 'signal', title: 'Cover concept // in progress' },
+      { kind: 'signal', title: 'Loop study // pending' },
       { kind: 'signal', title: 'Untitled Lyric Film' },
     ],
   },
