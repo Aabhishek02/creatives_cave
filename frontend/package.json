@@ -98,7 +98,8 @@
   },
   "overrides": {
     "ajv": "^8.17.1",
-    "ajv-keywords": "^5.1.0"
+    "ajv-keywords": "^5.1.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2"
   },
   "resolutions": {
     "react-router": "7.15.0",
