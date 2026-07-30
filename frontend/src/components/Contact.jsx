@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { CONTACT } from '@/constants/testIds';
 import { Instagram, Mail, ExternalLink, Send } from 'lucide-react';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const WEB3FORMS_KEY = 'a1478ae2-e48e-4d9c-802e-1d09b31f0b6a';
 
 const SOCIALS = [
   { key: 'instagram', label: '@also.abhiishek', href: 'https://instagram.com/also.abhiishek', icon: Instagram, testid: CONTACT.socialInstagram },
@@ -27,9 +26,28 @@ export default function Contact() {
       toast.error('Signal incomplete — fill all channels.');
       return;
     }
+    // Honeypot — if a bot filled this hidden field, silently pretend success
+    if (form.callsign.trim()) {
+      setStatus('success');
+      setForm({ name: '', email: '', message: '', callsign: '' });
+      return;
+    }
     setStatus('sending');
     try {
-      await axios.post(`${API}/contact`, form);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New signal from ${form.name} — Creatives Cave`,
+          from_name: 'Creatives Cave Contact Form',
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Transmission failed');
       toast.success('Signal received. I\u2019ll answer within 24h.');
       setStatus('success');
       setForm({ name: '', email: '', message: '', callsign: '' });
@@ -160,7 +178,7 @@ export default function Contact() {
               <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#3b5e45]">> direct_lines</div>
               <div className="mt-4 flex flex-col gap-3">
                 {SOCIALS.map((s) => (
-                  <a
+                  
                     key={s.key}
                     href={s.href}
                     target="_blank"
