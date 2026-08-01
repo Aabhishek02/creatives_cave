@@ -178,7 +178,7 @@ export default function Contact() {
               <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#3b5e45]">> direct_lines</div>
               <div className="mt-4 flex flex-col gap-3">
                 {SOCIALS.map((s) => (
-                  
+                  <a
                     key={s.key}
                     href={s.href}
                     target="_blank"
